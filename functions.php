@@ -2,23 +2,50 @@
 <?php 
 
 /**
- * My WP Starter theme
+ *
  */
 
-/* 
-	Code Ref: https://developer.wordpress.org/themes/advanced-topics/child-themes/#3-enqueue-stylesheet
-*/
-add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
-function my_theme_enqueue_styles() {
-	
-    $parent_style = 'parent-style'; 
+require_once('MyTimberSite.php');
 
-    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style',
-        get_stylesheet_directory_uri() . '/style.css',
-        array( $parent_style ),
-        wp_get_theme()->get('Version')
-    );
+
+$timber = new \Timber\Timber();
+
+if ( ! class_exists( 'Timber' ) ) {
+	add_action( 'admin_notices', function() {
+		echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
+	});
+
+	add_filter('template_include', function( $template ) {
+		return get_stylesheet_directory() . '/static/no-timber.html';
+	});
+
+	return;
 }
 
+
+/**
+ * Sets the directories (inside your theme) to find .twig files
+ */
+Timber::$dirname = array( 'templates', 'views' );
+
+/**
+ * By default, Timber does NOT autoescape values. Want to enable Twig's autoescape?
+ * No prob! Just set this value to true
+ */
+Timber::$autoescape = false;
+
+$site = new MyTimberSite();
+
+
+
+
+// function add_to_context( $data ) {
+//     $data['theme_images'] = get_stylesheet_directory_uri() . '/images/';
+//     $data['url_slug'] = get_url_slug();
+//     // $data['stuff'] = 'I am a value set in your functions.php file';
+//     // $data['notes'] = 'These values are available everytime you call Timber::get_context();';
+//     // $data['menu'] = new TimberMenu();
+//     return $data;
+// }
+// add_filter( 'timber_context', 'add_to_context' );
 ?>
