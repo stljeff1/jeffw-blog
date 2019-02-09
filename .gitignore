@@ -23,5 +23,5 @@ $RECYCLE.BIN/
 # =========================
 
 
-/node-modules
+/node_modules
 /vendor
