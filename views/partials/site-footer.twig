@@ -1,0 +1,36 @@
+
+<div class="footer-container grid-container">
+	<div class="footer-inner-wrapper">
+		<div class="grid-x grid-padding-x align-top">
+			<div class="footer-quick-links medium-9 large-8">
+				<div class="grid-x align-left">
+					<div class="cell shrink">
+						&copy; {{"now"|date('Y')}}
+					</div>
+
+					{% for item in menu.items %}
+						<div class="cell shrink">
+							<a href="{{ item.link }}">{{ item.title }}</a>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="footer-social-icons cell medium-3 large-4">
+				<div class="grid-x grid-padding-x align-right">
+					<div class="cell shrink">
+						<a href="#"><i class="fab fa-facebook-f"></i></a>
+					</div>
+					<div class="cell shrink">
+						<a href="#"><i class="fab fa-facebook-f"></i></a>
+					</div>
+					<div class="cell shrink">
+						<a href="#"><i class="fab fa-facebook-f"></i></a>
+					</div>
+					<div class="cell shrink">
+						<a href="#"><i class="fab fa-facebook-f"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

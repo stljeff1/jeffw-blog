@@ -1,0 +1,29 @@
+.site-footer {
+	background-color: $white;
+
+	@include -zf-breakpoint-value(auto, $grid-column-gutter) {
+		$pad-value: rem-calc($-zf-bp-value / 2);
+		padding-top: $pad-value;
+		padding-bottom: $pad-value;
+	}
+	.footer-quick-links,
+	.footer-social-icons {
+		.cell {
+			line-height: 1;
+		}
+	}
+
+}
+.footer-quick-links {
+	.cell {
+		border-right: 2px solid #CCC;
+		padding-right: .5rem;
+		margin-right: .5rem;
+		line-height: 1;
+		&:last-child {
+			padding-right: 0;
+			margin-right: 0;
+			border-right: 0;
+		}
+	}
+}

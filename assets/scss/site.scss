@@ -1,0 +1,69 @@
+$img-folder: '../images';
+
+@import "utils/all-settings";
+
+@import "utils/mixins";
+
+@import "utils/import-foundation.scss";
+
+@import "base-classes";
+
+
+@import "site-header";
+@import "site-footer";
+
+//@import "forms";
+//@import "newsletter";
+
+
+body {
+	background-color: $body-background;
+}
+
+a {
+	color: $red;
+	&:hover {
+		color: $red-light;
+	}
+	&:visited {
+		color: $red;
+	}
+	&.read-more {
+		@include button;
+		//display: block;
+		font-size: 85%;
+		&:before {
+			content: '';
+			display: block;
+		}
+	}
+}
+
+blockquote {
+	margin: 0 auto;
+	padding: 0;
+	max-width: 30rem;
+	font-size: 2rem;
+	text-align: center;
+	border: 0;
+	&, & p {
+		color: $white;	
+	}
+}
+
+main {
+	background-color: #F2f2f2;
+}
+
+article {
+	.post-inner-content {
+		@include main-content-area;
+	}
+}
+
+.main-content-area {
+	@include main-content-area;
+}
+//@import 'products';
+@import 'pages/*.scss';
+

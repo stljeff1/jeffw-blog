@@ -1,8 +1,10 @@
 {% extends "tease.twig" %}
 
 {% block content %}
+	{#<div style="displa: none">{{ dump(post.preview) }}</div>#}
 	<h2 class="h2"><a href="{{post.link}}">{{post.title}}</a></h2>
-		<p>{{post.preview.length(25)}}</p>
+		<p>{{ get_excerpt() }}</p>
+		<div><a href='{{post.link}}' title="{{ post.title }}" class="read-more">Read More</a></div>
 		{% if post.thumbnail.src %}
 			<img src="{{post.thumbnail.src}}" />
 		{% endif %}

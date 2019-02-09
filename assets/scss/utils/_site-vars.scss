@@ -1,0 +1,81 @@
+$default-border-radius: .5rem;
+
+$gray-dark: #222;
+$gray-light: #eaeaea;
+
+$gray-blue: #1E2431;
+$gray-blue2: #2D2A32;
+$gray-blue3: #3B4656;
+
+
+$gray-light2: #BCABAE;
+$gray-dark2: #2D2E2E;
+$black: #0F0F0F;
+
+$navy: #030e1e;
+$navy-dark: #000715;	
+
+
+$red: #d80033;
+$red-light: #F53440;
+$white: #fff;
+
+$highlight-color: #ffffd5;
+$yellow: #F4D58D;
+//$yellow-light: #EAE151;
+
+$element-padding: (
+	small: 2rem,
+	large: 4rem
+);
+
+$foundation-palette: (
+	primary: $navy,
+	secondary: $gray-dark2,	
+	success: #3adb76,
+	alert: $red,
+	warning: $yellow
+);
+
+$body-font-family: Roboto, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+
+$header-font-family: $body-font-family;
+
+$body-background: #F2F2F2;
+
+
+// $grid-column-gutter: (
+//   small: 30px,
+//   medium: 40px,
+//   large: 50px
+// );
+
+// $grid-margin-gutters: $grid-column-gutter;
+// $grid-padding-gutters: $grid-margin-gutters;
+// $grid-container-padding: $grid-padding-gutters;
+
+$button-sizes: (
+  tiny: 0.75rem,
+  small: 1rem,
+  default: 1.25rem,
+  large: 1.5rem,
+);
+
+$button-padding-bp-vals: (
+	small: .5rem .75rem,
+	medium: .75rem 1rem,
+	large: .75rem 2rem
+);
+
+// $button-palette: (
+// 	primary: $gold,
+// 	secondary: $gray,
+// 	success: get-color(success),
+// 	alert: $orange,
+// 	warning: $white
+// );
+
+$button-background: $navy;
+$button-background-hover: scale-color($button-background, $lightness: 15%);
+
+$button-radius: $default-border-radius;

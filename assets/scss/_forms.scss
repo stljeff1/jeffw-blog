@@ -1,0 +1,22 @@
+.wpcf7 {
+	p {
+		margin-bottom: 0;
+	}
+	label {
+		display: none;
+	}
+	input {
+		margin-bottom: 1rem;
+	}
+	.form-submit-container {
+		display: flex;
+		justify-content: flex-end;
+		.ajax-loader {
+			display: none;
+		}
+	}
+	.wpcf7-submit {
+		@include form-button;
+		order: 9;
+	}
+}

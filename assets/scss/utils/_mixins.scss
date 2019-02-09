@@ -1,0 +1,16 @@
+@mixin main-content-area() {
+
+	background-color: $white;
+	border: 1px solid #dadada;
+	border-radius: $default-border-radius;
+	@include xy-gutters($gutter-position: top bottom left right, $gutter-type: padding);
+	@include xy-gutters($gutter-position: bottom);
+}
+@mixin form-button() {
+	@include button($background: $orange, $background-hover: darken($orange, 15%), $color: $white);
+	margin-bottom: 0;
+	
+	@include -zf-breakpoint-value(auto, $button-padding-bp-vals) {
+		padding: $-zf-bp-value;
+	}
+}

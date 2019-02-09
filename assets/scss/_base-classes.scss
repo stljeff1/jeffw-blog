@@ -1,0 +1,36 @@
+
+main.content-container {
+	xbackground-color: rgba(#FFF, .1);
+	padding: 0 0 2rem;
+	&.template-contained {
+		color: $white;
+	}
+}
+
+.button {
+	xborder-radius: $default-border-radius;
+	color: $white;
+	font-weight: bold;
+
+	@include -zf-breakpoint-value(auto, $button-padding-bp-vals) {
+		padding: $-zf-bp-value;
+	}
+}
+
+a.button, a.button:visited {
+	color: $white;
+}
+
+.rounded-box {
+	border-radius: $default-border-radius;
+	&.padded {
+		@include xy-gutters($gutter-position: top right bottom left, $gutter-type: padding);
+	}
+	&.m-b {
+		@include xy-gutters($gutter-position: bottom);
+	}
+}
+
+.white-bg {
+	background-color: $white;
+}

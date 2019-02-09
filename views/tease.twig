@@ -1,9 +1,12 @@
 <article class="tease tease-{{post.post_type}}" id="tease-{{post.ID}}">
-	{% block content %}
-		<h2 class="h2"><a href="{{post.link}}">{{post.title}}</a></h2>
-		<p>{{post.preview}}</p>
-		{% if post.get_thumbnail %}
-			<img src="{{post.thumbnail.src}}" />
-		{% endif %}
-	{% endblock %}
+	<div class="main-content-area">
+		{% block content %}
+			<h2 class="h2"><a href="{{post.link}}">{{post.title}}</a></h2>
+			<p>{{post.preview}}</p>
+			not post tease
+			{% if post.get_thumbnail %}
+				<img src="{{post.thumbnail.src}}" />
+			{% endif %}
+		{% endblock %}
+	</div>
 </article>
