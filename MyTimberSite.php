@@ -1,4 +1,5 @@
 <?php
+
 /**
  * We're going to configure our theme inside of a subclass of Timber\Site
  * You can move this to its own file and include here via php's include("MySite.php")
@@ -7,9 +8,9 @@ class MyTimberSite extends Timber\Site {
 	/** Add timber support. */
 
 	public function __construct() {
-		//echo 'wtf?';
+
 		// $this->url_slug = $this->get_url_slug();
-		// echo 'wtfff? - ' . $this->url_slug;
+		
 		//add_action( 'after_setup_theme', 'site_init', 10 );
 		//add_action('init', 'site_head_cleanup');
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
@@ -23,7 +24,7 @@ class MyTimberSite extends Timber\Site {
 
 		//add_filter('body_class', array($this, 'set_body_class'));
 
-        //add_action( 'wp_enqueue_scripts', array( $this, 'loadScripts' ) );
+          add_action( 'wp_enqueue_scripts', 'site_scripts_and_styles' );
 		parent::__construct();
 	}
 
@@ -46,10 +47,10 @@ class MyTimberSite extends Timber\Site {
 		// $context['foo'] = 'bar';
 		// $context['stuff'] = 'I am a value set in your functions.php file';
 		// $context['notes'] = 'These values are available everytime you call Timber::get_context();';
-//echo 'hello??...' . $this->url_slug . '<br/>' . get_stylesheet_directory_uri();
+
 		$context['menu'] = new Timber\Menu();
 		$context['site'] = $this;
-		$context['theme_images'] = get_stylesheet_directory_uri() . '/images/';
+		$context['theme_images'] = get_stylesheet_directory_uri() . '/assets/images/';
 		$context['url_slug'] = $this->url_slug;
 		return $context;
 	}
@@ -63,9 +64,6 @@ class MyTimberSite extends Timber\Site {
 		else {
 			$this->url_slug = 'unknown-slug';
 		}
-		//.echo 'set...';
-		//print_r($post);
-		//echo '...fuck';
 
 	}
 
@@ -146,13 +144,46 @@ class MyTimberSite extends Timber\Site {
 	 */
 	public function add_to_twig( $twig ) {
 		$twig->addExtension( new Twig_Extension_StringLoader() );
-		$twig->addFilter( new Twig_SimpleFilter( 'myfoo', array( $this, 'myfoo' ) ) );
+		//$twig->addFilter( new Twig_SimpleFilter( 'myfoo', array( $this, 'myfoo' ) ) );
+		$twig->addFunction(new Timber\Twig_Function('get_excerpt', array($this, 'get_excerpt')));
+		$twig->addFunction(new Timber\Twig_Function('get_category', array($this, 'get_category')));
+		$twig->addFunction(new Timber\Twig_Function('get_tags', array($this, 'get_tags')));
 		return $twig;
+	}
+
+	public function get_excerpt() {
+		global $post;
+		$c = apply_filters('the_excerpt', $post->post_content);
+		$more = strpos($c, '<!--more');
+
+		if($post->post_excerpt)
+			return $post->post_excerpt;
+		else if($more !== false) 
+			return substr($c, 0, $more - 1);
+		else {
+			$m = preg_match('/([\S]+\s){20}/', $c, $matches);
+			if($matches)
+				return $matches[0];
+			else
+				return $c;
+		}
+		
+	}
+
+	public function get_category() {
+		
+	}
+
+	public function get_tags() {
+		
 	}
 	
      private function loadScripts() {
         
-		wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato');
+		//wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Lato');
+
+
+
 	} 
 
 
