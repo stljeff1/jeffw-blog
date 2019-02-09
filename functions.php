@@ -4,7 +4,7 @@
 /**
  *
  */
-
+require_once('scripts-and-styles.php');
 require_once('MyTimberSite.php');
 
 
