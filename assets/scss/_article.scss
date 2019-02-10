@@ -1,0 +1,44 @@
+
+article {
+	.post-inner-content {
+		@include main-content-area;
+	}
+}
+
+.article-header {
+	@include xy-gutters($gutter-position: bottom);
+}
+
+.article-title-tag {
+	line-height: 1;
+	.category-link {
+		font-size:  .8rem;
+		display: block;
+		font-family: $body-font-family;
+		//font-weight: 400;
+	}
+}
+.article-meta {
+	display: flex;
+	align-items: center;
+	span {
+		display: inline-flex;
+	}
+}
+.article-date {
+	@include xy-gutters($gutter-position: right);
+}
+.article-tags {
+	.button {
+		font-size: 75%;
+		padding: .2rem .5rem;
+		line-height: 1;
+		margin: 0 1rem 0 0;
+	}
+}
+
+.article-body {
+	.single & {
+		@include xy-gutters($gutter-position: top bottom, $gutter-type: padding);
+	}
+}

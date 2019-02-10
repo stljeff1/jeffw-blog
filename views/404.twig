@@ -1,5 +1,22 @@
-{% extends "base.twig" %}
+{% extends "index.twig" %}
 
 {% block content %}
-	Sorry, we couldn't find what you're looking for.
+	<header class="large-page-header">
+		<h1>404: Page Not Found</h1>
+		<p>Oops! There has been an error. No content can be found at this URL.</p>
+		<p>Try the <a href="/all-posts" title="{{ site.name }}">all posts</a> or <a href="{{ home_link }}" title="{{ home_title }}">homepage
+	</header>
+
+	<section class="main-content-area text-center">
+		<h2 class="section-header">Common Blog Categories</h2>
+		<div class="cat-links">
+			{% for cat in categories %}
+				{% if 'uncategorized' not in cat.slug %}
+					
+					<h3><a href='{{ cat.link() }}' class="root-cat-link">{{ cat.cat_name }}</a></h3>
+
+				{% endif %}
+			{% endfor %}
+		</div>
+	</section>
 {% endblock %}

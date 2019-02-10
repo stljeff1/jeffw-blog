@@ -4,26 +4,17 @@
  * foundation.zurb.com
  * Licensed under MIT Open Source
  */
-main.content-container {
-  xbackground-color: rgba(255, 255, 255, 0.1);
-  padding: 0 0 2rem; }
-  main.content-container.template-contained {
-    color: #fff; }
-
 .button {
   xborder-radius: 0.5rem;
   color: #fff;
-  font-weight: bold;
-  padding: 0.5rem 0.75rem; }
-  @media print, screen and (min-width: 40em) {
-    .button {
-      padding: 0.75rem 1rem; } }
-  @media print, screen and (min-width: 64em) {
-    .button {
-      padding: 0.75rem 2rem; } }
+  font-weight: bold; }
+  .button.info-btn {
+    background-color: #d80033; }
 
 a.button, a.button:visited {
   color: #fff; }
+  a.button:hover.info-btn, a.button:visited:hover.info-btn {
+    background-color: #F53440; }
 
 .rounded-box {
   border-radius: 0.5rem; }
@@ -47,6 +38,29 @@ a.button, a.button:visited {
 .white-bg {
   background-color: #fff; }
 
+.large-page-header {
+  padding-bottom: 0.625rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto; }
+  @media print, screen and (min-width: 40em) {
+    .large-page-header {
+      padding-bottom: 0.9375rem; } }
+  .large-page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.625rem; }
+    @media print, screen and (min-width: 40em) {
+      .large-page-header h1 {
+        margin-bottom: 0.9375rem; } }
+  .large-page-header p {
+    font-size: 1.25rem;
+    line-height: 1.25; }
+  @media print, screen and (min-width: 64em) {
+    .large-page-header h1 {
+      font-size: 4rem; }
+    .large-page-header p {
+      font-size: 1.5rem; } }
+
 .site-header {
   background: #030e1e;
   padding-top: 0.625rem;
@@ -61,8 +75,23 @@ a.button, a.button:visited {
     background-size: 2rem;
     font-size: 1.5rem;
     line-height: 1.5;
-    padding: 8px 0 0 48px;
+    padding: 0 0 0 2.5rem;
     margin: 20px 0; }
+  .site-header .site-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+  .site-header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0; }
+  .site-header nav li {
+    padding: 0 1.25rem; }
+  .site-header nav a, .site-header nav a:visited {
+    color: #F2F2F2;
+    font-weight: bold; }
+    .site-header nav a:hover, .site-header nav a:visited:hover {
+      color: #ffffd5; }
 
 .site-footer {
   background-color: #fff;
@@ -86,8 +115,76 @@ a.button, a.button:visited {
     margin-right: 0;
     border-right: 0; }
 
+article .post-inner-content {
+  background-color: #fff;
+  border: 1px solid #dadada;
+  border-radius: 0.5rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  margin-bottom: 0.625rem; }
+  @media print, screen and (min-width: 40em) {
+    article .post-inner-content {
+      padding-top: 0.9375rem;
+      padding-bottom: 0.9375rem;
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
+  @media print, screen and (min-width: 40em) {
+    article .post-inner-content {
+      margin-bottom: 0.9375rem; } }
+
+.article-header {
+  margin-bottom: 0.625rem; }
+  @media print, screen and (min-width: 40em) {
+    .article-header {
+      margin-bottom: 0.9375rem; } }
+
+.article-title-tag {
+  line-height: 1; }
+  .article-title-tag .category-link {
+    font-size: .8rem;
+    display: block;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.article-meta {
+  display: flex;
+  align-items: center; }
+  .article-meta span {
+    display: inline-flex; }
+
+.article-date {
+  margin-right: 0.625rem; }
+  @media print, screen and (min-width: 40em) {
+    .article-date {
+      margin-right: 0.9375rem; } }
+
+.article-tags .button {
+  font-size: 75%;
+  padding: .2rem .5rem;
+  line-height: 1;
+  margin: 0 1rem 0 0; }
+
+.single .article-body {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem; }
+  @media print, screen and (min-width: 40em) {
+    .single .article-body {
+      padding-top: 0.9375rem;
+      padding-bottom: 0.9375rem; } }
+
 body {
   background-color: #F2F2F2; }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-weight: 700; }
+  h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited, .h1 a, .h1 a:visited, .h2 a, .h2 a:visited, .h3 a, .h3 a:visited, .h4 a, .h4 a:visited, .h5 a, .h5 a:visited, .h6 a, .h6 a:visited {
+    color: #030e1e; }
+  h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, .h1 a:hover, .h2 a:hover, .h3 a:hover, .h4 a:hover, .h5 a:hover, .h6 a:hover {
+    color: #0f4492; }
+
+h1, .h1, .main-title {
+  color: #030e1e; }
 
 a {
   color: #d80033; }
@@ -132,26 +229,17 @@ blockquote {
     color: #fff; }
 
 main {
-  background-color: #F2f2f2; }
-
-article .post-inner-content {
-  background-color: #fff;
-  border: 1px solid #dadada;
-  border-radius: 0.5rem;
+  background-color: #F2f2f2;
   padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
   padding-left: 0.625rem;
   padding-right: 0.625rem;
-  margin-bottom: 0.625rem; }
+  padding-bottom: 0.625rem; }
   @media print, screen and (min-width: 40em) {
-    article .post-inner-content {
+    main {
       padding-top: 0.9375rem;
-      padding-bottom: 0.9375rem;
       padding-left: 0.9375rem;
-      padding-right: 0.9375rem; } }
-  @media print, screen and (min-width: 40em) {
-    article .post-inner-content {
-      margin-bottom: 0.9375rem; } }
+      padding-right: 0.9375rem;
+      padding-bottom: 0.9375rem; } }
 
 .main-content-area {
   background-color: #fff;
@@ -176,3 +264,9 @@ article .post-inner-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
+
+.page-home .section-header {
+  text-align: center; }
+
+.front-page-cats {
+  text-align: center; }

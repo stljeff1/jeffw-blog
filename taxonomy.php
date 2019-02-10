@@ -16,11 +16,6 @@
 $context = Timber::get_context();
 $context['posts'] = new Timber\PostQuery();
 $context['foo'] = 'bar';
-$templates = array( 'index.twig' );
-if ( is_home() ) {
-	array_unshift( $templates, 'all-posts.twig', 'home.twig' );
-}
-else if(is_front_page()) {
-	array_unshift( $templates, 'front-page.twig', 'home.twig' );	
-}
+$templates = array('archive.twig', 'index.twig' );
+echo '<h1>taxpaged</h1>';
 Timber::render( $templates, $context );

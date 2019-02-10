@@ -3,19 +3,7 @@
 {% block content %}
 	<div class="content-wrapper">
 		<article class="post-type-{{ post.post_type }} main-content-area" id="post-{{ post.ID }}">
-			<header class="article-header">
-				<h1 class="article-h1">{{ post.title }}</h1>
-				<div class="article-meta">
-					<span class="article-date">{{ post.date }}</span>
-					<span class="article-category">
-						{{ get_category() }}
-					</span>
-					<span class="article-tags">
-						{{ get_tags() }} {{ post.terms('tags')|join(',') }}
-					</span>
-
-				</div>
-			</header>
+			{% include "partials/article-header.twig" %}
 			<section class="article-content">
 
 				<div class="article-body">

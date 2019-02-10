@@ -1,24 +1,24 @@
 
-main.content-container {
-	xbackground-color: rgba(#FFF, .1);
-	padding: 0 0 2rem;
-	&.template-contained {
-		color: $white;
-	}
-}
-
 .button {
 	xborder-radius: $default-border-radius;
 	color: $white;
 	font-weight: bold;
 
-	@include -zf-breakpoint-value(auto, $button-padding-bp-vals) {
-		padding: $-zf-bp-value;
+	// @include -zf-breakpoint-value(auto, $button-padding-bp-vals) {
+	// 	padding: $-zf-bp-value;
+	// }
+	&.info-btn {
+		background-color: $red;
 	}
 }
 
 a.button, a.button:visited {
 	color: $white;
+	&:hover {
+		&.info-btn {
+			background-color: $red-light
+		}
+	}
 }
 
 .rounded-box {
@@ -33,4 +33,29 @@ a.button, a.button:visited {
 
 .white-bg {
 	background-color: $white;
+}
+
+.large-page-header {
+	
+	@include xy-gutters($gutter-position: bottom, $gutter-type: padding);
+	text-align: center;
+	max-width: 800px;
+	margin: 0 auto;
+	h1 {
+		font-size: 2.5rem;
+		@include xy-gutters($gutter-position: bottom);
+	}
+	p {
+		font-size: 1.25rem;
+		line-height: 1.25;
+	}
+	@include breakpoint(large) {
+		h1 {
+			font-size: 4rem;
+		}
+		p {
+			font-size: 1.5rem;
+
+		}
+	}
 }

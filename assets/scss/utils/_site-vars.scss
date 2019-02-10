@@ -14,6 +14,7 @@ $black: #0F0F0F;
 
 $navy: #030e1e;
 $navy-dark: #000715;	
+$navy-hover: lighten($navy, 25%);
 
 
 $red: #d80033;
@@ -37,9 +38,31 @@ $foundation-palette: (
 	warning: $yellow
 );
 
-$body-font-family: Roboto, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-$header-font-family: $body-font-family;
+$header-font-family: 'Roboto Slab', 'Georgia', 'Times', serif;
+
+$header-color: $red;
+
+
+$header-styles: (
+  small: (
+    'h1': ('font-size': 24),
+    'h2': ('font-size': 20),
+    'h3': ('font-size': 19),
+    'h4': ('font-size': 18),
+    'h5': ('font-size': 17),
+    'h6': ('font-size': 16),
+  ),
+  medium: (
+    'h1': ('font-size': 36),
+    'h2': ('font-size': 30),
+    'h3': ('font-size': 24),
+    'h4': ('font-size': 21),
+    'h5': ('font-size': 18),
+    'h6': ('font-size': 16),
+  ),
+);
 
 $body-background: #F2F2F2;
 
