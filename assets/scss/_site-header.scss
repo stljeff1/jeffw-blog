@@ -10,9 +10,32 @@
 		    background-size: 2rem;
 		    font-size: 1.5rem;
 		    line-height: 1.5;
-		    padding: 8px 0 0 48px;
+		    padding: 0 0 0 2.5rem;
 		    margin: 20px 0;
 
+		}
+	}
+	.site-nav-container {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	nav { 
+		ul {
+			display: flex;
+			justify-content: flex-end;
+			margin: 0;
+		}
+		li {
+			padding: 0 1.25rem;
+		}
+		a, a:visited {
+			color: $body-background;
+			font-weight: bold;
+			&:hover {
+				color: $highlight-color;
+			}
 		}
 	}
 }
