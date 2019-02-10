@@ -148,11 +148,11 @@ class MyTimberSite extends Timber\Site {
 		$twig->addFunction(new Timber\Twig_Function('get_excerpt', array($this, 'get_excerpt')));
 		$twig->addFunction(new Timber\Twig_Function('get_category', array($this, 'get_category')));
 		$twig->addFunction(new Timber\Twig_Function('get_tags', array($this, 'get_tags')));
+		$twig->addFunction(new Timber\Twig_Function('get_cat_posts', array($this, 'get_cat_posts')));
 		return $twig;
 	}
 
-	public function get_excerpt() {
-		global $post;
+	public function get_excerpt($post) {
 		$c = apply_filters('the_excerpt', $post->post_content);
 		$more = strpos($c, '<!--more');
 
@@ -176,6 +176,17 @@ class MyTimberSite extends Timber\Site {
 
 	public function get_tags() {
 		
+	}
+
+	public function get_cat_posts($cat_id) {
+
+		$posts = Timber::get_posts(array('category_name' => $cat_id));
+		$twig_object = array(
+			'total' => count($posts),
+			'posts' => array_slice($posts, 0, 5)
+		);
+		//print_r($posts);
+		return $twig_object;
 	}
 	
      private function loadScripts() {
