@@ -1,7 +1,12 @@
 
 .site-header {
+
 	background: $navy;
+	border-bottom: 3px solid $red;
+	top: -100%;
+	transition: all .25s;
 	@include xy-gutters($gutter-position: top bottom, $gutter-type: padding);
+
 	.site-logo-container {
 		a {
 
@@ -36,6 +41,26 @@
 			&:hover {
 				color: $highlight-color;
 			}
+		}
+	}
+
+	@include breakpoint(medium) {
+		height: $nav-height;
+	}
+	@include breakpoint(medium down) {
+		@include navbar-fixed;
+	}
+	
+}
+body.scrolling {
+	@include breakpoint(medium) {
+		.site-header {
+			@include navbar-fixed;
+			height: $nav-height;
+		
+		}
+		.root-container {
+			padding-top: $nav-height;
 		}
 	}
 }
