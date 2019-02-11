@@ -25,6 +25,6 @@
 			{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
 		{% endfor %}
 		{% include 'partials/pagination.twig' with { pagination: recent_posts.pagination({show_all: false, mid_size: 3, end_size: 2}) } %}
-	</div>
+	</section>
 	
 {% endblock %}
