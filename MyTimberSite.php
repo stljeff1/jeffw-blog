@@ -149,6 +149,7 @@ class MyTimberSite extends Timber\Site {
 		$twig->addFunction(new Timber\Twig_Function('get_category', array($this, 'get_category')));
 		$twig->addFunction(new Timber\Twig_Function('get_tags', array($this, 'get_tags')));
 		$twig->addFunction(new Timber\Twig_Function('get_cat_posts', array($this, 'get_cat_posts')));
+		$twig->addFunction(new Timber\Twig_Function('get_category_links', array($this, 'get_category_links')));
 		return $twig;
 	}
 
@@ -175,7 +176,7 @@ class MyTimberSite extends Timber\Site {
 	}
 
 	public function get_tags() {
-		
+
 	}
 
 	public function get_cat_posts($cat_id) {
@@ -187,6 +188,12 @@ class MyTimberSite extends Timber\Site {
 		);
 		//print_r($posts);
 		return $twig_object;
+	}
+
+	public function get_category_links() {
+
+		$cats = get_categories();
+		Timber::render("partials/post-category-links.twig", array('categories'=> $cats ));
 	}
 	
      private function loadScripts() {

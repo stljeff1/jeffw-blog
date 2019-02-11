@@ -18,7 +18,6 @@ $post = new TimberPost();
 $context['post'] = $post;
 
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$cats = get_categories();
 
 
 $recent_args = array(
@@ -27,7 +26,6 @@ $recent_args = array(
 );
 $context['recent_posts'] = Timber::get_posts($recent_args);
 
-$context['categories'] = $cats;
 
 
 //print_r(get_categories());

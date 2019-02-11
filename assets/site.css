@@ -63,6 +63,9 @@ a.button, a.button:visited {
 
 .site-header {
   background: #030e1e;
+  border-bottom: 3px solid #d80033;
+  top: -100%;
+  transition: all .25s;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem; }
   @media print, screen and (min-width: 40em) {
@@ -92,6 +95,27 @@ a.button, a.button:visited {
     font-weight: bold; }
     .site-header nav a:hover, .site-header nav a:visited:hover {
       color: #ffffd5; }
+  @media print, screen and (min-width: 40em) {
+    .site-header {
+      height: 4.5rem; } }
+  @media screen and (max-width: 63.99875em) {
+    .site-header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 999999; } }
+
+@media print, screen and (min-width: 40em) {
+  body.scrolling .site-header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    height: 4.5rem; }
+  body.scrolling .root-container {
+    padding-top: 4.5rem; } }
 
 .site-footer {
   background-color: #fff;

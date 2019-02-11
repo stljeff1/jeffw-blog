@@ -1,0 +1,27 @@
+
+			{% for cat in categories %}
+				{% if 'uncategorized' not in cat.slug %}
+					<h3><a href='{{ fn('get_category_link', cat.term_id) }}' class="root-cat-link">{{ cat.cat_name }}</a></h3>
+
+					{#
+					{% set cat_posts = get_cat_posts(cat.cat_name) %}
+					<div class="cell medium-4">
+						<div class="cat-link-container">
+							<h3><a href='{{ cat.link() }}' class="root-cat-link">{{ cat.cat_name }}</a></h3>
+							{% if cat_posts.total %}
+									
+								<ul>
+									{% for p in cat_posts.posts %}
+										<li><a href="{{ p.link() }}" title="{{ p.title }}">{{ p.title }}</a></li>
+									{% endfor %}
+								</ul>
+								{% if cat_posts.total > 5 %}
+									<p><a href="{{ cat.link() }}" title="All { cat.cat_name }} posts">See all {{ cat.cat_name }} posts.</a></p>
+								{% endif %}
+							{% endif %}
+							<p>Count: {{ cat_posts.total }}</p>
+						</div>
+					</div>
+					#}
+				{% endif %}
+			{% endfor %}

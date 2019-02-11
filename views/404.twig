@@ -10,13 +10,7 @@
 	<section class="main-content-area text-center">
 		<h2 class="section-header">Common Blog Categories</h2>
 		<div class="cat-links">
-			{% for cat in categories %}
-				{% if 'uncategorized' not in cat.slug %}
-					
-					<h3><a href='{{ cat.link() }}' class="root-cat-link">{{ cat.cat_name }}</a></h3>
-
-				{% endif %}
-			{% endfor %}
+			{{ get_category_links() }}
 		</div>
 	</section>
 {% endblock %}

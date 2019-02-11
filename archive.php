@@ -1,4 +1,4 @@
-<?php
+.<?php
 /**
  * The main template file
  * This is the most generic template file in a WordPress theme
@@ -21,10 +21,6 @@ $context = Timber::get_context();
 
 
 $q_obj = get_queried_object();
-echo '<h1>term</h1><pre>';
-print_r($q_obj);
-echo '</pre>';
-
 $context['queried_object'] = $q_obj;
 
 $context['title'] = 'Archive';
