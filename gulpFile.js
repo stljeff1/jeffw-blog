@@ -10,6 +10,12 @@ var autoprefixer = require('gulp-autoprefixer');
 var sassGlob = require('gulp-sass-glob');
 
 
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+
+var babelify = require('babelify');
+
+
 var THEME_DIR = "./",
 
 	ASSETS_DIR = THEME_DIR + 'assets/',
@@ -45,7 +51,47 @@ gulp.task('foundation', function () {
     .pipe(gulp.dest(ASSETS_DIR));
 });
 
+gulp.task('bundle-js', function() {
+  var bundleStream = browserify({
+    entries: './assets/js/vendor.js'
+  }) .transform('babelify', {
 
+    // https://babeljs.io/docs/en/env/
+    presets: ['@babel/preset-env']
+  }).bundle();
+
+  bundleStream.pipe(source('vendor-bun.js'))
+    .pipe(gulp.dest('./assets'));
+});
+
+// gulp.task('js', function() {
+
+
+//     return browserify({
+//         entries: 'assets/js/site.js',
+//         debug: true,
+//         extensions: ['.js', '.json', '.es6'],
+//         paths: ['node_modules/foundation-sites/dist/js/plugins']
+//     })
+//         .transform(babelify)
+//         .bundle()
+//         .pipe(source('vendor.js'))
+//         .pipe(gulp.dest('assets'));
+// })
+
+gulp.task('js', function() {
+
+    return browserify({
+        entries: 'assets/js/vendor.js',
+        debug: true,
+        extensions: ['.js', '.json', '.es6'],
+        paths: ['node_modules/foundation-sites/dist/js/plugins']
+    })
+        .transform(babelify)
+        .bundle()
+        .pipe(source('all.js'))
+        .pipe(gulp.dest('assets'));
+});
 
 gulp.task('sass', function () {
   	return gulp.src(SITE_STYLES_INIT_FILE)
@@ -55,7 +101,9 @@ gulp.task('sass', function () {
     	.pipe(rename(DESTINATION_STYLES))
 		  .pipe(gulp.dest(ASSETS_DIR));
 });
- 
+
+
+
 gulp.task('watch', function () {
   return gulp.watch(ASSETS_DIR + 'scss/**/*.scss', gulp.series('sass'));
 });

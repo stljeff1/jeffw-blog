@@ -57,7 +57,7 @@ function site_scripts_and_styles() {
 
 		//adding scripts file in the footer
 
-		//wp_enqueue_script( 'site-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'site-js', get_stylesheet_directory_uri() . '/assets/all.js', array( 'jquery' ), '', true );
 
 		// enqueue styles and scripts
 
