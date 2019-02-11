@@ -11,7 +11,7 @@ class MyTimberSite extends Timber\Site {
 
 		// $this->url_slug = $this->get_url_slug();
 		
-		//add_action( 'after_setup_theme', 'site_init', 10 );
+		add_action( 'init', array($this, 'site_init'), 10 );
 		//add_action('init', 'site_head_cleanup');
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
@@ -26,6 +26,10 @@ class MyTimberSite extends Timber\Site {
 
           add_action( 'wp_enqueue_scripts', 'site_scripts_and_styles' );
 		parent::__construct();
+	}
+
+	public function site_init() {
+		add_filter('the_content', array($this, 'filter_wp_gallery'), 5);
 	}
 
 
@@ -194,6 +198,29 @@ class MyTimberSite extends Timber\Site {
 
 		$cats = get_categories();
 		Timber::render("partials/post-category-links.twig", array('categories'=> $cats ));
+	}
+
+	public function filter_wp_gallery($content) {
+
+		$test = preg_match('/wp:gallery {"\w+":\[([\d+,]+)\]/', $content, $matches);
+		if($test) { 
+			$data = trim($matches[1]);
+			$ids = explode(",", $data);
+			$images = array();
+			foreach($ids as $id) {
+				array_push($images, new TimberImage($id));
+			}
+			ob_start();
+			Timber::render('custom-wp-gallery.twig', array('images' => $images));
+			$output = ob_get_contents();
+			ob_end_clean();
+
+			$content = preg_replace('/<\!-- wp:gallery.*\/wp:gallery.*-->/s', $output, $content);
+			// echo '<!-- ';
+			// print_r($parsed);
+			// echo '-->';
+		}
+		return $content;
 	}
 	
      private function loadScripts() {

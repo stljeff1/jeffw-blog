@@ -1,0 +1,13 @@
+
+<div class="grid-x">
+
+	{% for image in images %}
+		<div class="cell shrink">
+			<a href="{{ image.src }}" class="img-gal-trig">
+				<img src="{{ image.src('medium') }}" alt='{{ image.caption }}'/>
+			</a>
+		</div>
+
+
+	{% endfor %}
+</div>
