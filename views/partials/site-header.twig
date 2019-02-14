@@ -1,21 +1,29 @@
 <header id="SiteHeader" class="site-header">
 	<div class="grid-container">
-		<div class="grid-x grid-margin-x align-justify align-stretch">
-			<div class="cell shrink">
+		<div class="grid-x xgrid-padding-x align-justify align-stretch">
+			<div class="cell large-shrink">
 				{% block site_logo %}
-					<div class='site-logo-container'>
-						<a href="/">
-							{{ site.name }}
-						</a>
+					<div class='grid-x site-logo-container align-justify'>
+						<div class="site-logo cell auto">
+							<a href="/">
+								{{ site.name }}
+							</a>
+						</div>
+						<div class="cell mobile-nav-trigger-container shrink hide-for-large ">
+							<a class="mobile-nav-trigger toggle-btn" href="#" data-target="SiteNav">
+								<i class="fas fa-bars"></i>
+								Trig
+							</a>
+						</div>
+
 					</div>
 				{% endblock %}
 			</div>
-			<div class="cell auto site-nav-container">
+			<div class="cell large-auto site-nav-container">
 				{% block site_nav %}
-					<a href=""></a>
-					<nav class="site-nav">
+					<nav class="site-nav" id="SiteNav">
 
-	  					<ul class="no-bullet">
+	  					<ul class="nav-list">
 	  						{% for item in menu.items %}
 	  							<li><a href="{{ item.link }}">{{ item.title }}</a></li>
 	  						{% endfor %}

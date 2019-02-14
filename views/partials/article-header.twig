@@ -4,8 +4,12 @@
 					{% if post.category() %} 
 						<a href="{{ post.category().link() }}" class="category-link"><i class="far fa-folder-open"></i> /{{ post.category().name }}</a>
 					{% endif %}
-					{{ post.title }}
-			</h1>
+					{% if is_tease %}	
+						<a href="{{post.link}}" title="{{ post.title }}">{{ post.title }}</a>
+					{% else %}
+						{{ post.title }}
+					{% endif %}
+				</h1>
 				<div class="article-meta">
 					<span class="article-date">{{ post.date }}</span>
 					<span class="article-tags">

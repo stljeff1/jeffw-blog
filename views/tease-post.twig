@@ -2,7 +2,7 @@
 
 {% block content %}
 	{#<div style="displa: none">{{ dump(post.preview) }}</div>#}
-	{% include "partials/article-header.twig" %}
+	{{ include("partials/article-header.twig", {is_tease: true} )  }}
 		<p>{{ get_excerpt(post) }}</p>
 		<div><a href='{{post.link}}' title="{{ post.title }}" class="read-more">Read More</a></div>
 		{% if post.thumbnail.src %}
