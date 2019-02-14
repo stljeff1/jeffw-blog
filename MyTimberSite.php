@@ -29,7 +29,7 @@ class MyTimberSite extends Timber\Site {
 	}
 
 	public function site_init() {
-		add_filter('the_content', array($this, 'filter_wp_gallery'), 5);
+		//add_filter('the_content', array($this, 'filter_wp_gallery'), 5);
 	}
 
 
