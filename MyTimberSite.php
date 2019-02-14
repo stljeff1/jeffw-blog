@@ -233,4 +233,3 @@ class MyTimberSite extends Timber\Site {
 
 
 }
-?>
