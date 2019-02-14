@@ -1,9 +1,11 @@
 .page-connect {
-	.before-form-content-containter {
-		.cell {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
+	.large-page-header {
+		.grid-x {
+			@include xy-gutters($gutter-position: bottom);
+		}
+
+		h2 {
+			font-size: 1.75rem;
 		}
 	}
 }

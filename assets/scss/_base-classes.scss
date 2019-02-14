@@ -41,13 +41,19 @@ a.button, a.button:visited {
 	text-align: center;
 	max-width: 800px;
 	margin: 0 auto;
+	h1, h2, h3, h4, h5, h6 {
+		color: $navy
+	}
 	h1 {
 		font-size: 2.5rem;
 		@include xy-gutters($gutter-position: bottom);
 	}
-	p {
+	p, a {
 		font-size: 1.25rem;
 		line-height: 1.25;
+	}
+	i {
+		font-size: 1.5rem;
 	}
 	@include breakpoint(large) {
 		h1 {
@@ -57,5 +63,20 @@ a.button, a.button:visited {
 			font-size: 1.5rem;
 
 		}
+	}
+}
+
+.wp-block-cgb-block-jw-popup-gallery {
+	
+	.gallery-item a {
+		img { 
+			max-width: 300px;
+		}
+	}
+}
+
+.pagination {
+	.current {
+		background-color: $navy;
 	}
 }

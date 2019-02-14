@@ -4,7 +4,7 @@ $img-folder: '../images';
 
 @import "utils/mixins";
 
-@import "utils/import-foundation.scss";
+@import "vendor/import-foundation";
 
 @import "base-classes";
 
@@ -16,6 +16,15 @@ $img-folder: '../images';
 //@import "forms";
 //@import "newsletter";
 
+.grid-x {
+	xborder: 1px solid blue;
+}
+main {
+	xdisplay: none;
+}
+#wpadminbar {
+	display: none;
+}
 
 body {
 	background-color: $body-background;
@@ -63,13 +72,13 @@ blockquote {
 	text-align: center;
 	border: 0;
 	&, & p {
-		color: $white;	
+		xcolor: $white;	
 	}
 }
 
 main {
 	background-color: #F2f2f2;
-	@include xy-gutters($gutter-position: top left right bottom, $gutter-type: padding);
+	//@include xy-gutters($gutter-position: top left right bottom, $gutter-type: padding);
 }
 
 .main-content-area {

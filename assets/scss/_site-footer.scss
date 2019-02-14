@@ -12,6 +12,28 @@
 			line-height: 1;
 		}
 	}
+	.footer-social-icons i {
+		font-size: 1.5rem;
+	}
+	.about-site {
+		@include xy-gutters($gutter-position: top);
+	}
+	@include breakpoint(large) {
+		.footer-quick-links .grid-x {
+			justify-content: flex-start;
+		}
+		.footer-social-icons .grid-x {
+			justify-content: flex-end;
+		}
+	}
+	@include breakpoint(small down) {
+		.footer-social-icons {
+			@include xy-gutters($gutter-position: bottom);
+		}
+		.about-site {
+			text-align: center;
+		}
+	}
 
 }
 .footer-quick-links {
