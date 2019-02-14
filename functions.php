@@ -37,7 +37,13 @@ Timber::$autoescape = false;
 $site = new MyTimberSite();
 
 
+//add_action( 'enqueue_block_editor_assets', 'block_editor_enqueues');
 
+
+function block_editor_enqueues() {
+	//echo '<h1>'.get_stylesheet_directory_uri() . '/assets/js/block-customization.js</h1>';
+	wp_enqueue_script('block-customization', get_stylesheet_directory_uri() . '/assets/js/block-customization.js', array('wp-blocks'));
+}
 
 // function add_to_context( $data ) {
 //     $data['theme_images'] = get_stylesheet_directory_uri() . '/images/';
