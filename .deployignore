@@ -1,0 +1,7 @@
+gulpFile.js
+package.json
+package-lock.json
+.gitignore
+.gitattributes
+assets/scss/**.*
+assets/js/**.*
