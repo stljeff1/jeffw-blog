@@ -24,14 +24,14 @@ function site_scripts_and_styles() {
 		/**
 		  * Foundation
 		**/
-		wp_enqueue_style( 'foundation', get_stylesheet_directory_uri() . '/assets/foundation-custom.css', array(), 'v'.filemtime(get_stylesheet_directory() . '/assets/foundation-custom.css'), 'all' );
+		wp_enqueue_style( 'foundation', get_stylesheet_directory_uri() . '/assets/dist/foundation-custom.css', array(), 'v'.filemtime(get_stylesheet_directory() . '/assets/dist/foundation-custom.css'), 'all' );
 
 		/**
 		  * Site.css
 		**/
 
-		$v = 'v'.filemtime(get_stylesheet_directory() . '/assets/site.css');
-		wp_enqueue_style( 'site', get_stylesheet_directory_uri() . '/assets/site.css', array('foundation'),  $v);
+		$v = 'v'.filemtime(get_stylesheet_directory() . '/assets/dist/site.css');
+		wp_enqueue_style( 'site', get_stylesheet_directory_uri() . '/assets/dist/site.css', array('foundation'),  $v);
 
 		/**
 		  * Styles.css
@@ -45,7 +45,7 @@ function site_scripts_and_styles() {
 		/**
 		  *  ie-only style sheet
 		**/
-		wp_enqueue_style( 'ie-only', get_stylesheet_directory_uri() . '/assets/ie.css', array(), '' );
+		wp_enqueue_style( 'ie-only', get_stylesheet_directory_uri() . '/assets/dist/ie.css', array(), '' );
 
 
 
@@ -57,7 +57,7 @@ function site_scripts_and_styles() {
 
 		//adding scripts file in the footer
 
-		wp_enqueue_script( 'site-js', get_stylesheet_directory_uri() . '/assets/all.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'site-js', get_stylesheet_directory_uri() . '/assets/dist/all.js', array( 'jquery' ), '', true );
 
 		// enqueue styles and scripts
 
