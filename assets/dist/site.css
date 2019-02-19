@@ -209,6 +209,8 @@ article .post-inner-content {
   background-color: #fff;
   border: 1px solid #dadada;
   border-radius: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
   padding-left: 0.625rem;
@@ -223,6 +225,13 @@ article .post-inner-content {
   @media print, screen and (min-width: 40em) {
     article .post-inner-content {
       margin-bottom: 0.9375rem; } }
+  @media print, screen and (min-width: 64em) {
+    article .post-inner-content {
+      width: 85%; } }
+  @media print, screen and (min-width: 64em) {
+    article .post-inner-content {
+      width: 75%;
+      max-width: 640px; } }
 
 .article-header {
   margin-bottom: 0.625rem; }
@@ -276,14 +285,15 @@ body {
   background-color: #F2F2F2; }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-weight: 700; }
+  font-weight: 700;
+  color: #030e1e; }
   h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited, .h1 a, .h1 a:visited, .h2 a, .h2 a:visited, .h3 a, .h3 a:visited, .h4 a, .h4 a:visited, .h5 a, .h5 a:visited, .h6 a, .h6 a:visited {
     color: #030e1e; }
   h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, .h1 a:hover, .h2 a:hover, .h3 a:hover, .h4 a:hover, .h5 a:hover, .h6 a:hover {
     color: #0f4492; }
 
-h1, .h1, .main-title {
-  color: #030e1e; }
+h2, .h2, .section-title {
+  color: #d80033; }
 
 a {
   color: #d80033; }
@@ -330,10 +340,18 @@ blockquote {
 main {
   background-color: #F2f2f2; }
 
+pre {
+  margin-bottom: 0.625rem; }
+  @media print, screen and (min-width: 40em) {
+    pre {
+      margin-bottom: 0.9375rem; } }
+
 .main-content-area {
   background-color: #fff;
   border: 1px solid #dadada;
   border-radius: 0.5rem;
+  margin-left: auto;
+  margin-right: auto;
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
   padding-left: 0.625rem;
@@ -348,6 +366,13 @@ main {
   @media print, screen and (min-width: 40em) {
     .main-content-area {
       margin-bottom: 0.9375rem; } }
+  @media print, screen and (min-width: 64em) {
+    .main-content-area {
+      width: 85%; } }
+  @media print, screen and (min-width: 64em) {
+    .main-content-area {
+      width: 75%;
+      max-width: 640px; } }
 
 .page-connect .large-page-header .grid-x {
   margin-bottom: 0.625rem; }
