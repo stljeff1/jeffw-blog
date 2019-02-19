@@ -3,8 +3,17 @@
 	background-color: $white;
 	border: 1px solid #dadada;
 	border-radius: $default-border-radius;
+	margin-left: auto;
+	margin-right: auto;
 	@include xy-gutters($gutter-position: top bottom left right, $gutter-type: padding);
 	@include xy-gutters($gutter-position: bottom);
+	@include breakpoint(large) {
+		width: 85%;
+	}
+	@include breakpoint(large) {
+		width: 75%;
+		max-width: 640px;
+	}
 }
 @mixin form-button() {
 	@include button($background: $orange, $background-hover: darken($orange, 15%), $color: $white);

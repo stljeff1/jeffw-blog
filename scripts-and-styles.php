@@ -24,7 +24,7 @@ function site_scripts_and_styles() {
 		/**
 		  * Foundation
 		**/
-		wp_enqueue_style( 'foundation', get_stylesheet_directory_uri() . '/assets/dist/foundation-custom.css', array(), 'v'.filemtime(get_stylesheet_directory() . '/assets/dist/foundation-custom.css'), 'all' );
+		wp_enqueue_style( 'foundation', get_stylesheet_directory_uri() . '/assets/dist/vendor.css', array(), 'v'.filemtime(get_stylesheet_directory() . '/assets/dist/vendor.css'), 'all' );
 
 		/**
 		  * Site.css
@@ -78,3 +78,4 @@ function site_scripts_and_styles() {
 	}
 
 }
+?>

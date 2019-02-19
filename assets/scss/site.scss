@@ -1,8 +1,8 @@
 $img-folder: '../images';
 
-@import "utils/all-settings";
+@import "common/all-settings";
 
-@import "utils/mixins";
+@import "common/mixins";
 
 @import "vendor/import-foundation";
 
@@ -32,6 +32,7 @@ body {
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-weight: 700;
+	color: $navy;
 	a {
 		&, &:visited {
 			color: $navy;
@@ -41,8 +42,8 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 		}
 	}
 }
-h1, .h1, .main-title {
-	color: $navy;
+h2, .h2, .section-title {
+	color: $red;
 }
 
 a {
@@ -79,6 +80,11 @@ blockquote {
 main {
 	background-color: #F2f2f2;
 	//@include xy-gutters($gutter-position: top left right bottom, $gutter-type: padding);
+}
+
+pre {
+	
+	@include xy-gutters($gutter-position: bottom);
 }
 
 .main-content-area {
